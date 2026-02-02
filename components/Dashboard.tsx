@@ -23,7 +23,7 @@ const Dashboard: React.FC<DashboardProps> = ({ student, onNavigate, onStudentCha
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 md:gap-6">
         <div className="text-left">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-gray-900 tracking-tighter leading-tight break-words">
-            Olá, Juliana! <span className="text-[#FFB800]">Música</span> é vida. 🎸
+            Olá, Juliana! <span className="text-[#FFB800]">Arte</span> Muda O Mundo 💛
           </h2>
           <p className="text-gray-500 font-bold mt-1 md:mt-2 flex items-center gap-2 text-[10px] md:text-sm">
             <div className="w-5 h-5 md:w-8 md:h-8 rounded-lg bg-[#FFFCEB] flex items-center justify-center text-[#FFB800] shadow-inner flex-shrink-0">
