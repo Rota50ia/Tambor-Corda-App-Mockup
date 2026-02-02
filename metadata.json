@@ -1,0 +1,8 @@
+{
+  "name": "Tambor & Corda - App Mockup",
+  "description": "A high-fidelity presentation mockup for Tambor & Corda music school's student and parent portal, featuring dashboards, lesson tracking, and teacher communication.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
