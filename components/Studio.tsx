@@ -27,11 +27,9 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
     setVideoUrl(null);
     
     try {
-      // Check for API key and prompt if not present
       const hasKey = await (window as any).aistudio?.hasSelectedApiKey();
       if (!hasKey) {
         await (window as any).aistudio?.openSelectKey();
-        // Assuming success after opening, as per instructions to avoid race conditions
       }
 
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -70,7 +68,6 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
     } catch (err: any) {
       console.error(err);
       if (err.message?.includes("Requested entity was not found")) {
-        // Reset key selection if entity not found (usually means key/project issue)
         setError("Erro de permissão ou projeto não encontrado. Por favor, selecione uma chave de API vinculada a um projeto faturado.");
         await (window as any).aistudio?.openSelectKey();
       } else {
@@ -91,7 +88,7 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
         </div>
         <div className="flex flex-col items-end gap-2">
            <div className="flex items-center gap-2 text-[10px] font-black text-blue-500 uppercase tracking-widest bg-blue-50 px-4 py-2 rounded-full border border-blue-100 shadow-sm">
-            <i className="fa-solid fa-bolt"></i> Powered by Veo 3.1
+            <i className="fa-solid fa-bolt"></i> Tecnologia Veo 3.1
           </div>
           <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Requer chave de API paga</p>
         </div>
@@ -102,7 +99,7 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
           <div className="space-y-6">
             <h3 className="text-2xl font-black text-gray-900">Roteiro do Teaser</h3>
             <p className="text-sm font-medium text-gray-400 leading-relaxed">
-              Descreva como você imagina a performance ideal do {student}. Nossa IA Veo transformará seu texto em um vídeo de alta qualidade.
+              Descreva como você imagina a performance ideal do {student}. Nossa IA transformará seu texto em um vídeo cinematográfico.
             </p>
             <div className="relative group">
               <textarea 
@@ -115,7 +112,7 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
                 <button 
                   onClick={() => setPrompt(`Um vídeo de alta energia de um ${student === 'Enzo' ? 'baterista' : 'violonista'} tocando em um festival de música ao pôr do sol, multidão animada ao fundo.`)}
                   className="p-2 bg-white text-gray-400 rounded-xl hover:text-[#FFB800] shadow-sm transition-all border border-gray-100"
-                  title="Prompt Aleatório"
+                  title="Sugerir Roteiro"
                 >
                   <i className="fa-solid fa-shuffle text-xs"></i>
                 </button>
@@ -149,7 +146,7 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
                 </>
               )}
             </button>
-            <p className="text-[10px] text-center font-black text-gray-300 uppercase tracking-widest">A geração pode levar alguns minutos • <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" className="underline hover:text-gray-900">Documentação de Faturamento</a></p>
+            <p className="text-[10px] text-center font-black text-gray-300 uppercase tracking-widest">A geração pode levar alguns minutos • <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" className="underline hover:text-gray-900">Sobre Faturamento</a></p>
           </div>
         </div>
 
@@ -184,6 +181,7 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
                   href={videoUrl} 
                   download={`teaser-${student}.mp4`}
                   className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white hover:bg-[#FFB800] transition-all"
+                  title="Baixar Teaser"
                  >
                    <i className="fa-solid fa-download"></i>
                  </a>
@@ -192,31 +190,13 @@ const StudioView: React.FC<StudioViewProps> = ({ student }) => {
           ) : (
             <div className="text-center p-12 space-y-6 max-w-sm opacity-30">
               <i className="fa-solid fa-film text-8xl text-white"></i>
-              <h4 className="text-white font-black text-lg">Seu Teaser Aparecerá Aqui</h4>
+              <h4 className="text-white font-black text-lg">Seu Vídeo Aparecerá Aqui</h4>
               <p className="text-gray-500 text-xs font-bold leading-relaxed">
-                Personalize o roteiro e clique em gerar para ver a mágica cinematográfica do Veo em ação.
+                Personalize o roteiro e clique em gerar para ver a mágica cinematográfica em ação.
               </p>
             </div>
           )}
         </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[
-          { title: "Qualidade 1080p", icon: "fa-expand", text: "Vídeos em alta definição prontos para redes sociais." },
-          { title: "Consistência de Personagem", icon: "fa-user-check", text: "A IA entende o estilo musical do aluno no vídeo." },
-          { title: "Exportação Direta", icon: "fa-share-nodes", text: "Baixe e compartilhe o progresso com amigos e família." }
-        ].map((feat, i) => (
-          <div key={i} className="bg-white p-8 rounded-[36px] border border-gray-100 shadow-sm flex items-center gap-6 group hover:border-[#FFB800]/40 transition-all">
-            <div className="w-12 h-12 rounded-2xl bg-gray-50 text-gray-400 group-hover:text-[#FFB800] group-hover:bg-[#FFFCEB] flex items-center justify-center text-xl transition-all">
-              <i className={`fa-solid ${feat.icon}`}></i>
-            </div>
-            <div>
-              <h5 className="text-[10px] font-black text-gray-900 uppercase tracking-widest mb-1">{feat.title}</h5>
-              <p className="text-xs text-gray-500 font-medium leading-relaxed">{feat.text}</p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   );

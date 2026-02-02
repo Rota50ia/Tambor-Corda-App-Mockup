@@ -54,11 +54,11 @@ const AssignmentView: React.FC<AssignmentViewProps> = ({ student }) => {
     <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000 space-y-10 pb-12">
       <div className="flex flex-col md:flex-row items-end justify-between gap-6">
         <div>
-          <h2 className="text-4xl font-black text-gray-900 tracking-tight">Assignments</h2>
-          <p className="text-gray-500 font-bold mt-1">Tarefas formais e avaliações pedagógicas para {student}.</p>
+          <h2 className="text-4xl font-black text-gray-900 tracking-tight">Tarefas Pedagógicas</h2>
+          <p className="text-gray-500 font-bold mt-1">Exercícios formais e avaliações de desempenho para {student}.</p>
         </div>
         <div className="flex gap-3 bg-white p-1 rounded-2xl shadow-sm border border-gray-100">
-          <button className="px-6 py-2 bg-gray-900 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-xl">Ativos</button>
+          <button className="px-6 py-2 bg-gray-900 text-white rounded-xl text-xs font-black uppercase tracking-widest shadow-xl">Ativas</button>
           <button className="px-6 py-2 text-gray-400 hover:text-gray-900 rounded-xl text-xs font-black uppercase tracking-widest transition-all">Arquivo</button>
         </div>
       </div>
@@ -100,7 +100,7 @@ const AssignmentView: React.FC<AssignmentViewProps> = ({ student }) => {
                      <i className="fa-solid fa-feather-pointed text-8xl text-amber-900"></i>
                   </div>
                   <div className="w-20 h-20 bg-white rounded-3xl flex flex-col items-center justify-center shadow-md border border-amber-100 flex-shrink-0 relative z-10">
-                    <span className="text-[8px] font-black text-amber-300 uppercase leading-none mb-1">Grade</span>
+                    <span className="text-[8px] font-black text-amber-300 uppercase leading-none mb-1">Nota</span>
                     <span className="text-3xl font-black text-amber-600 leading-none">{item.grade}</span>
                   </div>
                   <div className="space-y-2 relative z-10">
@@ -118,7 +118,7 @@ const AssignmentView: React.FC<AssignmentViewProps> = ({ student }) => {
                   disabled={submittingId === item.id}
                   className="w-full py-5 bg-gray-900 text-white rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-lg hover:bg-[#FFB800] transition-all disabled:opacity-50"
                 >
-                  {submittingId === item.id ? <i className="fa-solid fa-spinner animate-spin"></i> : 'Submeter Agora'}
+                  {submittingId === id ? <i className="fa-solid fa-spinner animate-spin"></i> : 'Submeter Agora'}
                 </button>
               ) : (
                 <button className="w-full py-5 bg-white border border-gray-200 text-gray-400 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
@@ -131,7 +131,6 @@ const AssignmentView: React.FC<AssignmentViewProps> = ({ student }) => {
         ))}
       </div>
 
-      {/* Proactive Gamification Tip */}
       <div className="bg-[#1A1A1A] rounded-[56px] p-12 text-white flex flex-col md:flex-row items-center gap-12 relative overflow-hidden group">
         <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:scale-125 transition-transform duration-[4s]">
           <i className="fa-solid fa-graduation-cap text-[180px] text-[#FFB800]"></i>

@@ -36,10 +36,10 @@ const HomeworkView: React.FC<HomeworkProps> = ({ student }) => {
             </div>
           </div>
           <div>
-            <h2 className="text-4xl font-black text-gray-900 leading-tight">Prática de {student}</h2>
+            <h2 className="text-4xl font-black text-gray-900 leading-tight">Sessão de Treino: {student}</h2>
             <p className="text-gray-400 font-bold uppercase tracking-[0.2em] text-xs mt-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              Sessão de Hoje: Ativa
+              Prática de Hoje: Em Progresso
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@ const HomeworkView: React.FC<HomeworkProps> = ({ student }) => {
               <div className="w-1.5 h-8 bg-[#FFB800] rounded-full"></div>
               Roteiro de Treino
             </h3>
-            <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">3 TAREFAS HOJE</span>
+            <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">3 TAREFAS PARA HOJE</span>
           </div>
           
           <div className="space-y-4">
@@ -96,7 +96,7 @@ const HomeworkView: React.FC<HomeworkProps> = ({ student }) => {
                     </div>
                     <h4 className="font-black text-gray-900 text-xl">{task.title}</h4>
                     <p className="text-xs font-bold text-gray-400 mt-1 flex items-center gap-2">
-                      <i className="fa-solid fa-clock"></i> Tempo estimado: {task.time}
+                      <i className="fa-solid fa-clock"></i> Tempo sugerido: {task.time}
                     </p>
                   </div>
                 </div>
@@ -118,7 +118,6 @@ const HomeworkView: React.FC<HomeworkProps> = ({ student }) => {
             Ferramentas <i className="fa-solid fa-toolbox text-[#FFB800]"></i>
           </h3>
           
-          {/* Metronome Widget */}
           <div className="bg-[#1A1A1A] rounded-[48px] p-10 text-white shadow-2xl space-y-10 relative overflow-hidden group">
             <div className="flex items-center justify-between relative z-10">
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">Metrônomo Digital</h4>

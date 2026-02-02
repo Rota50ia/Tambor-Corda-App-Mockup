@@ -47,7 +47,7 @@ const AITutor: React.FC<AITutorProps> = ({ student }) => {
           { role: 'user', parts: [{ text: userMsg }] }
         ],
         config: {
-          systemInstruction: `Você é o "Mestre Tambor", um mentor de música gentil e encorajador da escola de música Tambor & Corda. Seu objetivo é ajudar o aluno ${student} a praticar melhor, tirar dúvidas de teoria musical e sugerir exercícios divertidos. Seja breve, use emojis musicais e sempre foque no instrumento que o aluno toca (Enzo=Bateria, Sophia=Violão). Use Markdown para formatar tabelas de exercícios ou diagramas de acordes se necessário.`,
+          systemInstruction: `Você é o "Mestre Tambor", um mentor de música gentil e encorajador da escola de música Tambor & Corda. Seu objetivo é ajudar o aluno ${student} a praticar melhor, tirar dúvidas de teoria musical e sugerir exercícios divertidos. Responda exclusivamente em PORTUGUÊS DO BRASIL. Seja breve, use emojis musicais e sempre foque no instrumento que o aluno toca (Enzo=Bateria, Sophia=Violão). Use Markdown para formatar tabelas de exercícios ou diagramas de acordes se necessário.`,
           thinkingConfig: { thinkingBudget: 500 }
         }
       });
@@ -73,8 +73,7 @@ const AITutor: React.FC<AITutorProps> = ({ student }) => {
 
   return (
     <div className="animate-in fade-in slide-in-from-bottom-6 duration-1000 h-[calc(100vh-280px)] flex flex-col bg-white rounded-[56px] border border-gray-100 shadow-[0_50px_100px_rgba(0,0,0,0.08)] overflow-hidden relative">
-      {/* Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#FFB800 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
 
       <div className="p-10 border-b border-gray-50 bg-white/80 backdrop-blur-md flex items-center justify-between relative z-10">
         <div className="flex items-center gap-5">
@@ -88,7 +87,7 @@ const AITutor: React.FC<AITutorProps> = ({ student }) => {
         </div>
         <div className="flex items-center gap-3">
           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]"></div>
-          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Live Learning</span>
+          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Aprendizado ao Vivo</span>
         </div>
       </div>
 
@@ -117,7 +116,7 @@ const AITutor: React.FC<AITutorProps> = ({ student }) => {
         {isLoading && !streamingText && (
           <div className="flex justify-start">
             <div className="bg-gray-50 px-6 py-4 rounded-full flex gap-2 items-center shadow-inner border border-gray-100">
-              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">Mestre Tambor está pensando</span>
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">O Mestre está pensando</span>
               <div className="flex gap-1">
                 <div className="w-1.5 h-1.5 bg-[#FFB800] rounded-full animate-bounce"></div>
                 <div className="w-1.5 h-1.5 bg-[#FFB800] rounded-full animate-bounce delay-150"></div>
@@ -128,7 +127,6 @@ const AITutor: React.FC<AITutorProps> = ({ student }) => {
         )}
       </div>
 
-      {/* Quick Actions Container */}
       {!isLoading && messages.length < 5 && (
         <div className="px-10 pb-4 flex flex-wrap gap-2 relative z-10">
           {quickPrompts.map(prompt => (

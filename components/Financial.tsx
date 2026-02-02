@@ -7,9 +7,9 @@ interface FinancialProps {
 
 const FinancialView: React.FC<FinancialProps> = ({ student }) => {
   const invoices = [
-    { id: '#INV-2025-05', month: 'Maio 2025', status: 'paid', amount: 'R$ 450,00', date: '05/05/2025', method: 'Cartão de Crédito' },
-    { id: '#INV-2025-06', month: 'Junho 2025', status: 'pending', amount: 'R$ 450,00', date: '05/06/2025', method: '-' },
-    { id: '#INV-2025-07', month: 'Julho 2025', status: 'upcoming', amount: 'R$ 450,00', date: '05/07/2025', method: '-' },
+    { id: '#FAT-2025-05', month: 'Maio 2025', status: 'paid', amount: 'R$ 450,00', date: '05/05/2025', method: 'Cartão de Crédito' },
+    { id: '#FAT-2025-06', month: 'Junho 2025', status: 'pending', amount: 'R$ 450,00', date: '05/06/2025', method: '-' },
+    { id: '#FAT-2025-07', month: 'Julho 2025', status: 'upcoming', amount: 'R$ 450,00', date: '05/07/2025', method: '-' },
   ];
 
   return (
@@ -25,7 +25,6 @@ const FinancialView: React.FC<FinancialProps> = ({ student }) => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Main Financial Summary */}
         <div className="lg:col-span-2 space-y-8">
           <div className="bg-white rounded-[40px] border border-gray-100 shadow-xl overflow-hidden">
             <div className="p-8 border-b border-gray-50 flex items-center justify-between">
@@ -71,7 +70,6 @@ const FinancialView: React.FC<FinancialProps> = ({ student }) => {
           </div>
         </div>
 
-        {/* Sidebar Cards */}
         <div className="space-y-8">
           <div className="bg-[#1A1A1A] rounded-[40px] p-8 text-white shadow-2xl space-y-8 relative overflow-hidden group">
              <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
